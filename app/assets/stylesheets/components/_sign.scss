@@ -1,0 +1,22 @@
+.sign-box {
+  max-width: 400px;
+  margin: 0 auto;
+
+  .inner {
+    border: 1px solid $color-gray;
+    padding: 10px;
+    margin: 20px;
+    @include border-all-radius($border-radius-base);
+
+    .footer-links {
+      border-top: 1px solid $color-gray;
+      margin-top: 14px;
+      padding-top: 6px;
+
+      a {
+        display: inline-block;
+        margin-right: 12px;
+      }
+    }
+  } /* inner */
+}
