@@ -1,0 +1,17 @@
+= form_for [:dashboard, @page] do |f|
+
+  .form-group
+    = f.text_field :title, placeholder: 'Title', class: 'form-control'
+
+  .form-group
+    = f.text_field :description, placeholder: 'Description', class: 'form-control'
+
+  .form-group
+    = f.hidden_field :content, value: @page.content
+    #page_content_editor class="ace-editor"
+      = @page.content
+  hr
+  .actions
+    = f.submit class: 'btn btn-default'
+
+= render 'dashboard/shared/ace_editor', id: 'page_content'

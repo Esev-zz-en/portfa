@@ -2,10 +2,27 @@
  *= require_self
  */
 
-@import "bourbon";
-@import "base/base";
-@import "neat";
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 @import "variables/base";
 @import "components/sign";
 @import "components/section_title";
+@import "components/dashboard";
+@import "components/ace_editor";
+@import "components/buttons";
+
+.container {
+  max-width: 600px;
+  .dashboard-wrapper {
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 0 0 $border-radius-base $border-radius-base;
+  }
+  nav.navbar {
+    margin-top: 30px;
+    margin-bottom: 0;
+    border-radius: $border-radius-base $border-radius-base 0 0;
+  }
+  textarea { resize: none }
+}

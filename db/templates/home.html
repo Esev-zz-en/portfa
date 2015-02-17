@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-header">
+        <h1>{{ me.name }}</h1>
+        <p class="lead">{{ me.email }}, {{ me.username }}</p>
+      </div>
+
+      {% for project in projects %}
+        <div class="media">
+          <div class="media-body">
+            <h4 class="media-heading">{{ project.title }}</h4>
+            <p>{{ project.content }}</p>
+            <a href="{{ project.slug | project_path }}" class="btn btn-default">View</a>
+          </div>
+        </div>
+        <hr />
+      {% endfor %}
+    </div>
+  </div>
+</div>
+

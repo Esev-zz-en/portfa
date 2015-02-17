@@ -1,9 +1,1 @@
-$color-light-gray: #f4f4f4;
-$color-gray: #eee;
-$color-dark-gray: #666;
 $border-radius-base: 3px;
-
-@mixin border-all-radius($args) {
-  @include border-top-radius($args);
-  @include border-bottom-radius($args);
-}

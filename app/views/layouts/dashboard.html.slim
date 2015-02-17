@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title Dashboard
+    = stylesheet_link_tag 'application', media: 'all'
+    = csrf_meta_tags
+  body.dashboard
+    .container
+      .row
+        .col-sm-12
+          = render 'dashboard/shared/nav'
+
+    .container
+      .dashboard-wrapper
+        = yield
+    = javascript_include_tag 'application'

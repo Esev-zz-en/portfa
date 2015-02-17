@@ -1,0 +1,13 @@
+= form_for [:dashboard, @project] do |f|
+
+  .form-group
+    = f.text_field :title, class: 'form-control', placeholder: 'Title'
+
+  .form-group
+    = f.date_select :release_date
+
+  .field
+    = f.text_area :content, rows: 10, class: 'form-control', placeholder: 'Content'
+
+  hr
+  = f.submit class: 'btn btn-default'

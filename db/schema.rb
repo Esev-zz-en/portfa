@@ -11,7 +11,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150214151504) do
+ActiveRecord::Schema.define(version: 20150216210710) do
+
+  create_table "pages", force: :cascade do |t|
+    t.integer  "site_id"
+    t.boolean  "deletable",   default: true
+    t.string   "title"
+    t.string   "description"
+    t.string   "slug"
+    t.text     "content"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "pages", ["site_id", "slug"], name: "index_pages_on_site_id_and_slug", unique: true
+  add_index "pages", ["site_id"], name: "index_pages_on_site_id"
+
+  create_table "projects", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "slug"
+    t.text     "content"
+    t.date     "release_date"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "projects", ["user_id", "slug"], name: "index_projects_on_user_id_and_slug", unique: true
+  add_index "projects", ["user_id"], name: "index_projects_on_user_id"
+
+  create_table "site_assets", force: :cascade do |t|
+    t.integer  "site_id"
+    t.string   "name"
+    t.string   "extension"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "site_assets", ["site_id"], name: "index_site_assets_on_site_id"
+
+  create_table "sites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "sites", ["user_id"], name: "index_sites_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -27,9 +75,11 @@ ActiveRecord::Schema.define(version: 20150214151504) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
 end

@@ -1,0 +1,12 @@
+body.dashboard {
+  background: $gray-dark;
+}
+
+.list-group {
+  .list-group-item {
+    small {
+      display: block;
+      color: $gray-light;
+    }
+  }
+}

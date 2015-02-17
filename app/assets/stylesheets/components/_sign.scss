@@ -3,13 +3,13 @@
   margin: 0 auto;
 
   .inner {
-    border: 1px solid $color-gray;
+    border: 1px solid $gray-lighter;
     padding: 10px;
     margin: 20px;
-    @include border-all-radius($border-radius-base);
+    border-radius: $border-radius-base;
 
     .footer-links {
-      border-top: 1px solid $color-gray;
+      border-top: 1px solid $gray-lighter;
       margin-top: 14px;
       padding-top: 6px;
 

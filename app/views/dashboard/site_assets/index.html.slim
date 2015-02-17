@@ -1,0 +1,13 @@
+.row
+  .col-sm-12
+    = link_to 'New', new_dashboard_site_asset_path, class: 'btn btn-success'
+    hr
+
+    ul.list-group
+      - for site_asset in site_assets
+        li.list-group-item.clearfix
+          .clearfix.pull-left
+            = site_asset.file_name
+
+          = link_to icon_tag('pencil'), edit_dashboard_site_asset_path(site_asset), class: 'btn btn-warning pull-right'
+
