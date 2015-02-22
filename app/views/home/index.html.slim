@@ -1,6 +1,44 @@
-.row
-  .col-sm-12
-    .page-header
-      h1 Portfa
+.hero-header
+  .container
+    .row
+      .col-sm-12
+        .header-bar.clearfix
+          h1.pull-left Portfa
 
-    = link_to 'Login', new_user_session_path
+          ul class="nav nav-pills pull-right"
+            li role="presentation"
+              = link_to 'Login', new_user_session_path
+
+    .row
+      .col-sm-12
+        .text-center
+          h2 Easily create your portfolio website in minutes
+          form
+            .input-group
+              input type="email" name="email" class="form-control" placeholder="Enter your email"
+              .input-group-btn
+                button type="submit" class="btn btn-warning" Create
+
+.propositions
+  .container
+    .row
+      .col-sm-4
+        .icon = icon_tag('pencil')
+        h3 Customized layout
+        p Edit any part of the template or easily upload a custom template. You can also choose one of the existing templates.
+
+      .col-sm-4
+        .icon = icon_tag('briefcase')
+        h3 Add your projects
+        p With a ridiculously easy interface you can quickly add your projects.
+
+      .col-sm-4
+        .icon = icon_tag('thumbs-up')
+        h3 Publish and share
+        p Once you finished setting up your online portfolio, share it and reach your customers.
+
+.container
+  .row
+    .col-sm-12
+      .site-footer.text-center
+        | This application is #{link_to('open source', '#')}, we would love your contribution.

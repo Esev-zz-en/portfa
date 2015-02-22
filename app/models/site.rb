@@ -18,4 +18,8 @@ class Site < ActiveRecord::Base
   def to_liquid
     attributes.deep_stringify_keys
   end
+
+  def javascripts
+    site_assets.select { |a| a.js? }
+  end
 end

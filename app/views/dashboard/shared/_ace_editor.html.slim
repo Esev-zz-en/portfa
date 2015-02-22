@@ -2,9 +2,10 @@
 javascript:
   var editor = ace.edit('#{id}_editor');
   editor.setTheme("ace/theme/chrome");
-  editor.getSession().setMode("ace/mode/html");
+  editor.getSession().setMode("ace/mode/#{mode}");
   editor.getSession().setUseSoftTabs(true);
   editor.getSession().setTabSize(2);
+  document.getElementById('#{id}_editor').style.fontSize='14px';
   editor.getSession().on('change', function(e) {
     $('##{id}').val(editor.getValue());
   });

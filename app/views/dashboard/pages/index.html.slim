@@ -11,5 +11,10 @@
               = page.title
               small = site_page_path(current_user.username, page.slug)
 
-          = link_to icon_tag('pencil'), edit_dashboard_page_path(page), class: 'btn btn-warning pull-right'
+          = dropdown_button(icon_tag('cog'), group_class: 'pull-right', btn_class: 'btn-warning') do
+            li = link_to 'Edit', edit_dashboard_page_path(page)
+            li = link_to 'Delete', dashboard_page_path(page), method: :delete if page.deletable?
 
+- content_for :after_javascript do
+  javascript:
+    $('.navbar li.pages').addClass('active');

@@ -1,3 +1,4 @@
 .ace-editor {
   min-height: 200px;
+  @extend .form-control;
 }

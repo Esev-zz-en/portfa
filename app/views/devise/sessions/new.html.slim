@@ -1,20 +1,21 @@
 .section-title.centered
   h2 Log in
+  = link_to root_path, class: 'text-muted' do
+    = icon_tag('chevron-left')
+    |  Back
 
 .sign-box
   .inner
 
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .field
-        = f.label :email
-        = f.email_field :email, autofocus: true
+      .form-group
+        = f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email'
 
-      .field
-        = f.label :password
-        = f.password_field :password, autocomplete: "off"
+      .form-group
+        = f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'Password'
 
       .actions
-        = f.submit "Log in"
+        = f.submit 'Log in', class: 'btn btn-success btn-block'
 
     .footer-links
       = render "devise/shared/links"

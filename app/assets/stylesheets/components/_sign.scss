@@ -3,13 +3,22 @@
   margin: 0 auto;
 
   .inner {
-    border: 1px solid $gray-lighter;
     padding: 10px;
     margin: 20px;
-    border-radius: $border-radius-base;
+
+    #error_explanation {
+      h2 {
+        font-size: 1.5em;
+        color: $gray-light;
+        margin-top: 0;
+      }
+      ul {
+        list-style: square;
+        margin: 20px 0;
+      }
+    }
 
     .footer-links {
-      border-top: 1px solid $gray-lighter;
       margin-top: 14px;
       padding-top: 6px;
 

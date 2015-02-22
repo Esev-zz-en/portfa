@@ -1,4 +1,5 @@
 class Site::SiteAssetsController < Site::SiteController
+  skip_before_action :verify_authenticity_token
   def show
     render inline: asset_renderer.output,
       content_type: asset_renderer.content_type

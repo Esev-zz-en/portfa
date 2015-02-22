@@ -4,6 +4,6 @@ html
     title Portfa
     = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tags
-  body
+  body class=(devise_controller? ? 'dashboard' : params[:controller])
     = yield
     = javascript_include_tag 'application'

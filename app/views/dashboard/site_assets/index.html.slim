@@ -7,7 +7,14 @@
       - for site_asset in site_assets
         li.list-group-item.clearfix
           .clearfix.pull-left
-            = site_asset.file_name
+            = link_to site_asset_path(current_user.username, site_asset.file_name), target: '_blank' do
+              = site_asset.file_name
+              small = site_asset.extension_display
 
-          = link_to icon_tag('pencil'), edit_dashboard_site_asset_path(site_asset), class: 'btn btn-warning pull-right'
+          = dropdown_button(icon_tag('cog'), group_class: 'pull-right', btn_class: 'btn-warning') do
+            li = link_to 'Edit', edit_dashboard_site_asset_path(site_asset)
+            li = link_to 'Delete', dashboard_site_asset_path(site_asset), method: :delete
 
+- content_for :after_javascript do
+  javascript:
+    $('.navbar li.site-assets').addClass('active');

@@ -1,12 +1,44 @@
 body.dashboard {
-  background: $gray-dark;
-}
+  background: #f2f8fa;
 
-.list-group {
-  .list-group-item {
-    small {
-      display: block;
+  .container {
+    max-width: 600px;
+    textarea { resize: none }
+
+    .footer {
+      border-top: 1px solid $gray-lighter;
+      margin-top: 20px;
+      padding-top: 10px;
+      font-size: 0.8em;
       color: $gray-light;
+      a { color: $gray-light; }
+    }
+  }
+
+  @media (max-width: $screen-sm-min) {
+    .dashboard-wrapper { padding: 0 20px; }
+  }
+
+  .list-group {
+    font-size: 1.3em;
+
+    .list-group-item {
+      border: 0;
+      background: none;
+      padding: 10px 0;
+      font-weight: 600;
+
+      small {
+        display: block;
+        color: $gray-light;
+        font-size: 65%;
+        font-weight: 500;
+      }
+
+      ul.dropdown-menu {
+        border-radius: 3px;
+      }
     }
   }
 }
+

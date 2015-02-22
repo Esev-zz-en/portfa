@@ -1,16 +1,15 @@
 nav.navbar.navbar-default
-  .container-fluid
-    .navbar-header
-      button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-        span.sr-only
-          | Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      = link_to 'Portfa', dashboard_projects_path, class: 'navbar-brand'
+  .navbar-header
+    button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#dashboard-navbar-colapse"
+      span.sr-only
+        | Toggle navigation
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    = link_to current_user.name, dashboard_projects_path, class: 'navbar-brand'
 
-    .collapse.navbar-collapse.pull-right
-      ul.nav.navbar-nav
-        li = link_to 'Projects', dashboard_projects_path
-        li = link_to 'Pages', dashboard_pages_path
-        li = link_to 'Assets', dashboard_site_assets_path
+  .collapse.navbar-collapse id="dashboard-navbar-colapse"
+    ul.nav.navbar-nav
+      li.projects = link_to 'Projects', dashboard_projects_path
+      li.pages = link_to 'Pages', dashboard_pages_path
+      li.site-assets = link_to 'Assets', dashboard_site_assets_path

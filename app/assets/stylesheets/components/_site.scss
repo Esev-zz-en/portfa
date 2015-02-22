@@ -1,0 +1,96 @@
+.hero-header {
+  background: url("/assets/bg.jpg") no-repeat center center;
+  background-size: cover;
+
+  .header-bar {
+    padding: 20px 0;
+
+    h1 {
+      margin: 0;
+      font-size: 1.2em;
+      color: #fff;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .nav.nav-pills {
+      li a {
+        padding: 0 15px;
+        color: #fff;
+        border-radius: 2px;
+        background: #fff;
+        color: #666;
+        font-weight: 600;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.5);
+          color: #333;
+        }
+      }
+    }
+  }
+
+  h2 {
+    color: #fff;
+    font-weight: 100;
+    font-size: 4em;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px 0 80px;
+    .form-control {
+      border-radius: $border-radius-base 0 0 $border-radius-base;
+      color: #666;
+      border: 0;
+      background: #fff;
+      padding: 10px 20px;
+      height: 60px;
+      font-size: 20px;
+    }
+
+    .btn {
+      height: 60px;
+      padding-left: 20px;
+      padding-right: 20px;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 18px;
+    }
+  }
+}
+
+.propositions {
+  padding: 30px 0;
+  color: #777;
+  text-align: center;
+
+  .container { max-width: 960px; }
+
+  .icon {
+    font-size: 5em;
+    color: $brand-success;
+  }
+
+  h3 {
+    font-size: 1.5em;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 1.2em;
+    color: #999;
+  }
+}
+
+.site-footer {
+  border-top: 1px solid #f4f4f4;
+  padding: 10px 0 40px;
+  font-size: 0.9em;
+  color: #999;
+  a { color: #999; }
+}

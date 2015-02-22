@@ -2,27 +2,22 @@
  *= require_self
  */
 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700);
+@import "variables/base";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-@import "variables/base";
+@import "components/site";
 @import "components/sign";
 @import "components/section_title";
 @import "components/dashboard";
+@import "components/nav";
 @import "components/ace_editor";
 @import "components/buttons";
+@import "components/forms";
 
-.container {
-  max-width: 600px;
-  .dashboard-wrapper {
-    padding: 20px;
-    background: #f4f4f4;
-    border-radius: 0 0 $border-radius-base $border-radius-base;
-  }
-  nav.navbar {
-    margin-top: 30px;
-    margin-bottom: 0;
-    border-radius: $border-radius-base $border-radius-base 0 0;
-  }
-  textarea { resize: none }
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
+

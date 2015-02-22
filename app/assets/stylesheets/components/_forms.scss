@@ -1,0 +1,28 @@
+body.dashboard {
+  .form-group {
+    margin: 0;
+    background: #fff;
+    border-radius: 2px;
+  }
+
+  .form-control {
+    border: 0;
+    border-bottom: 1px solid $input-border;
+    box-shadow: none;
+    padding: 25px;
+    border-color: $gray-lighter;
+    font-size: 1.2em;
+    color: #999;
+
+    &:focus {
+      box-shadow: none;
+      border-color: $gray-lighter;
+      color: $gray-darker;
+    }
+  }
+
+  .actions {
+    padding-top: 20px;
+  }
+}
+

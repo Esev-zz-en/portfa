@@ -2,15 +2,22 @@ doctype html
 html
   head
     title Dashboard
+    meta name="viewport" content="width=device-width, initial-scale=1"
     = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tags
-  body.dashboard
-    .container
-      .row
-        .col-sm-12
-          = render 'dashboard/shared/nav'
+  body class="dashboard #{params[:controller].parameterize.dasherize}"
+    .nav-wrapper
+      .container
+        .row
+          .col-sm-12
+            = render 'dashboard/shared/nav'
 
     .container
       .dashboard-wrapper
         = yield
-    = javascript_include_tag 'application'
+        .footer
+          | This application is #{link_to 'open source', '#'},
+          |  we would love your contribution.
+
+    = javascript_include_tag 'dashboard'
+    = yield :after_javascript

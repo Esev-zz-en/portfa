@@ -8,3 +8,5 @@ html
     = page_html.html_safe
     script src="//code.jquery.com/jquery-1.11.2.min.js"
     script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"
+    - for asset in site.javascripts
+      script src="/#{user.username}/assets/#{asset.file_name}"

@@ -11,4 +11,10 @@
               = project.title
               small = site_project_path(current_user.username, project.slug)
 
-          = link_to icon_tag('pencil'), edit_dashboard_project_path(project), class: 'btn btn-warning pull-right'
+          = dropdown_button(icon_tag('cog'), group_class: 'pull-right', btn_class: 'btn-warning') do
+            li = link_to 'Edit', edit_dashboard_project_path(project)
+            li = link_to 'Delete', dashboard_project_path(project), data: { method: :delete }
+
+- content_for :after_javascript do
+  javascript:
+    $('.navbar li.projects').addClass('active');

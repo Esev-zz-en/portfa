@@ -1,7 +1,7 @@
 = form_for [:dashboard, @page] do |f|
 
-  .form-group
-    = f.text_field :title, placeholder: 'Title', class: 'form-control'
+  .form-group.top
+    = f.text_field :title, placeholder: 'Title', class: 'form-control', readonly: !@page.deletable?
 
   .form-group
     = f.text_field :description, placeholder: 'Description', class: 'form-control'
@@ -10,8 +10,9 @@
     = f.hidden_field :content, value: @page.content
     #page_content_editor class="ace-editor"
       = @page.content
-  hr
-  .actions
-    = f.submit class: 'btn btn-default'
 
-= render 'dashboard/shared/ace_editor', id: 'page_content'
+  .actions.clearfix
+    = link_to 'Cancel', dashboard_pages_path, class: 'btn btn-default pull-left'
+    = f.submit class: 'btn btn-success pull-right'
+
+= render 'dashboard/shared/ace_editor', id: 'page_content', mode: 'html'

@@ -1,0 +1,16 @@
+= form_for [:dashboard, @site_asset] do |f|
+
+  .form-group
+    = f.text_field :file_name, placeholder: 'File name', class: 'form-control'
+
+  .form-group
+    = f.hidden_field :content, value: @site_asset.content
+    #site_asset_content_editor class="ace-editor"
+      = @site_asset.content
+
+  .actions.clearfix
+    = link_to 'Cancel', dashboard_site_assets_path, class: 'btn btn-default pull-left'
+    = f.submit (@site_asset.persisted? and 'Update' or 'Create') + ' Asset',
+      class: 'btn btn-success pull-right'
+
+= render 'dashboard/shared/ace_editor', id: 'site_asset_content', mode: @site_asset.mode

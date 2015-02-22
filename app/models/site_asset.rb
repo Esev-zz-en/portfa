@@ -8,9 +8,26 @@ class SiteAsset < ActiveRecord::Base
     [name, extension].join('.')
   end
 
-  def file_name=(name_and_extesion)
+  def file_name=(name_and_extension)
     name, extension = name_and_extension.split('.')
     self.name = name
     self.extension = extension
+  end
+
+  def js?
+    extension == 'js'
+  end
+
+  def css?
+    extension == 'css'
+  end
+
+  def mode
+    return 'javascript' if js?
+    extension || 'css'
+  end
+
+  def extension_display
+    js? and 'Javascript' or 'CSS'
   end
 end
