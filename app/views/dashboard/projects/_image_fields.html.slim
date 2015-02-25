@@ -1,0 +1,5 @@
+.nested-fields
+  .form-group
+    = f.text_field :url, class: 'form-control', placeholder: 'Image URL'
+    = link_to_remove_association f, class: 'btn btn-danger btn-xs' do
+      = icon_tag('trash')

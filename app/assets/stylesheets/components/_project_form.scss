@@ -1,0 +1,22 @@
+.project-form {
+  #images {
+    position: relative;
+
+    .add_fields {
+      position: absolute;
+      right: 103%;
+      top: 100%;
+      white-space: nowrap;
+    }
+
+    .nested-fields {
+      position: relative;
+
+      .remove_fields {
+        position: absolute;
+        left: 102%;
+        top: 30%;
+      }
+    }
+  }
+}

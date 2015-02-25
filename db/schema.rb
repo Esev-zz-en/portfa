@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150216210710) do
+ActiveRecord::Schema.define(version: 20150222194615) do
 
   create_table "pages", force: :cascade do |t|
     t.integer  "site_id"
@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(version: 20150216210710) do
 
   add_index "pages", ["site_id", "slug"], name: "index_pages_on_site_id_and_slug", unique: true
   add_index "pages", ["site_id"], name: "index_pages_on_site_id"
+
+  create_table "project_images", force: :cascade do |t|
+    t.integer  "project_id"
+    t.string   "url"
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "project_images", ["project_id"], name: "index_project_images_on_project_id"
 
   create_table "projects", force: :cascade do |t|
     t.integer  "user_id"

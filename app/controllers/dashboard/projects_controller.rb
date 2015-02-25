@@ -36,6 +36,8 @@ class Dashboard::ProjectsController < Dashboard::DashboardController
 
   def project_params
     return {} unless params[:project].present?
-    params.require(:project).permit(:title, :slug, :content, :release_date)
+    params.require(:project)
+      .permit(:title, :slug, :content, :release_date,
+      images_attributes: [:url, :title, :description])
   end
 end

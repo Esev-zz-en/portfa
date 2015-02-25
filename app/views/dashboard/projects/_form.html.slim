@@ -1,7 +1,13 @@
-= form_for [:dashboard, @project] do |f|
+= form_for [:dashboard, @project], html: { class: 'project-form' } do |f|
 
   .form-group
     = f.text_field :title, class: 'form-control', placeholder: 'Title'
+
+  #images
+    = f.fields_for :images do |image|
+      = render 'image_fields', f: image
+    = link_to_add_association f, :images, data: { association_insertion_method: 'append' }, class: 'btn btn-default btn-sm'
+      | #{icon_tag('plus-sign')} Image
 
   .form-group
     = f.text_area :content, rows: 10, class: 'form-control', placeholder: 'Content'
