@@ -1,0 +1,11 @@
+= form_for [:dashboard, @site] do |f|
+
+  .form-group
+    = f.text_field :title, class: 'form-control', placeholder: 'Title'
+
+  .form-group
+    = f.text_field :description, class: 'form-control', placeholder: 'Description'
+
+  .actions.clearfix
+    = link_to 'Cancel', dashboard_projects_path, class: 'btn btn-default pull-left'
+    = f.submit class: 'btn btn-success pull-right'
