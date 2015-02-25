@@ -12,10 +12,16 @@ class User < ActiveRecord::Base
     !site.nil?
   end
 
+  def first_name
+    name.split(' ').first
+  end
+
   def to_liquid
     attributes.select { |k, _|
       %w[email name username].include?(k)
-    }
+    }.merge({
+      'first_name' => first_name
+    })
   end
 
   private
