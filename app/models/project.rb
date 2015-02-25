@@ -8,6 +8,14 @@ class Project < ActiveRecord::Base
 
   def to_liquid
     attributes.deep_stringify_keys
+      .merge({
+      'images' => images.all,
+      'first_image' => first_image
+    })
+  end
+
+  def first_image
+    images.first
   end
 
   private

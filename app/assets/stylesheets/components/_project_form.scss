@@ -4,13 +4,21 @@
 
     .add_fields {
       position: absolute;
-      right: 103%;
+      right: 101%;
       top: 100%;
       white-space: nowrap;
     }
 
     .nested-fields {
       position: relative;
+
+      .column-half-size {
+        float: left;
+        width: 50%;
+        &:first-child {
+          border-right: 1px solid #eee;
+        }
+      }
 
       .remove_fields {
         position: absolute;

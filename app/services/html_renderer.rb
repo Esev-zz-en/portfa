@@ -13,6 +13,17 @@ class HtmlRenderer
       .render(self)
   end
 
+  def page_title
+    [user.name, project.try(:title)].compact.join(' - ')
+  end
+
+  def asset_url(file_name)
+    route_helpers.site_asset_url(
+      user.username, file_name,
+      host: Rails.application.config.action_controller.asset_host
+    )
+  end
+
   private
 
   def page_html
@@ -27,6 +38,10 @@ class HtmlRenderer
         },
         filters: [::ProjectPathFilter]
       ).html_safe
+  end
+
+  def route_helpers
+    Rails.application.routes.url_helpers
   end
 
   def debug(msg)

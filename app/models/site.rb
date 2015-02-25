@@ -22,4 +22,8 @@ class Site < ActiveRecord::Base
   def javascripts
     site_assets.select { |a| a.js? }
   end
+
+  def stylesheets
+    site_assets.select { |a| a.css? }
+  end
 end

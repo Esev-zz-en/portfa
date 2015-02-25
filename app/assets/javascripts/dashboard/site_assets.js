@@ -9,7 +9,7 @@ $(function() {
         mode = 'javascript';
         break;
       default:
-        mode = 'css';
+        mode = 'scss';
     }
 
     editor.getSession().setMode("ace/mode/"+mode);

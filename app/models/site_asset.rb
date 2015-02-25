@@ -24,7 +24,7 @@ class SiteAsset < ActiveRecord::Base
 
   def mode
     return 'javascript' if js?
-    extension || 'css'
+    'scss'
   end
 
   def extension_display

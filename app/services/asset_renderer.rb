@@ -5,15 +5,27 @@ class AssetRenderer
   end
 
   def output
-    site_asset.content
+    return site_asset.content if site_asset.js?
+    render_scss
   end
 
   def content_type
-    case site_asset.extension
-    when 'js'
+    if site_asset.js?
       'text/javascript; charset=utf-8'
-    when 'css'
+    else
       'text/css'
     end
+  end
+
+  private
+
+  def render_scss
+    ::Sass::Engine.new(
+      site_asset.content,
+      syntax: :scss,
+      cache: false,
+      read_cache: false,
+      style: :compressed
+    ).render
   end
 end

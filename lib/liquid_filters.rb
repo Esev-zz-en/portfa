@@ -1,6 +1,6 @@
 module ProjectPathFilter
   def project_path(slug)
-    [user.username, 'projects', slug].join('/')
+    route_helpers.site_project_path(user.username, slug)
   end
 
   private
@@ -15,5 +15,9 @@ module ProjectPathFilter
     OpenStruct.new(
       @context.find_variable('site')
     )
+  end
+
+  def route_helpers
+    Rails.application.routes.url_helpers
   end
 end

@@ -15,9 +15,11 @@ html
     .container
       .dashboard-wrapper
         = yield
-        .footer
+        .footer.clearfix
           | This application is #{link_to 'open source', '#'},
           |  we would love your contribution.
+
+          = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'pull-right'
 
     = javascript_include_tag 'dashboard'
     = yield :after_javascript
