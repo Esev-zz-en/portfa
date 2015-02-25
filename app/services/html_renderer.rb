@@ -24,6 +24,13 @@ class HtmlRenderer
     )
   end
 
+  def site_url
+    route_helpers.site_url(
+      user.username,
+      host: Rails.application.config.action_controller.asset_host
+    )
+  end
+
   private
 
   def page_html
@@ -34,7 +41,8 @@ class HtmlRenderer
           'site' => site,
           'page' => page,
           'projects' => user.projects,
-          'project' => project
+          'project' => project,
+          'site_url' => site_url
         },
         filters: [::ProjectPathFilter]
       ).html_safe
