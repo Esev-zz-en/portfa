@@ -1,5 +1,5 @@
 .hero-header {
-  background: url("/assets/bg.jpg") no-repeat center center;
+  background: url(asset-path("bg.jpg")) no-repeat center center;
   background-size: cover;
 
   .header-bar {
