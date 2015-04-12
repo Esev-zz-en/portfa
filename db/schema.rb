@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150222194615) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "pages", force: :cascade do |t|
     t.integer  "site_id"
     t.boolean  "deletable",   default: true
@@ -24,8 +27,8 @@ ActiveRecord::Schema.define(version: 20150222194615) do
     t.datetime "updated_at",                 null: false
   end
 
-  add_index "pages", ["site_id", "slug"], name: "index_pages_on_site_id_and_slug", unique: true
-  add_index "pages", ["site_id"], name: "index_pages_on_site_id"
+  add_index "pages", ["site_id", "slug"], name: "index_pages_on_site_id_and_slug", unique: true, using: :btree
+  add_index "pages", ["site_id"], name: "index_pages_on_site_id", using: :btree
 
   create_table "project_images", force: :cascade do |t|
     t.integer  "project_id"
@@ -36,7 +39,7 @@ ActiveRecord::Schema.define(version: 20150222194615) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "project_images", ["project_id"], name: "index_project_images_on_project_id"
+  add_index "project_images", ["project_id"], name: "index_project_images_on_project_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.integer  "user_id"
@@ -48,8 +51,8 @@ ActiveRecord::Schema.define(version: 20150222194615) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "projects", ["user_id", "slug"], name: "index_projects_on_user_id_and_slug", unique: true
-  add_index "projects", ["user_id"], name: "index_projects_on_user_id"
+  add_index "projects", ["user_id", "slug"], name: "index_projects_on_user_id_and_slug", unique: true, using: :btree
+  add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
 
   create_table "site_assets", force: :cascade do |t|
     t.integer  "site_id"
@@ -60,7 +63,7 @@ ActiveRecord::Schema.define(version: 20150222194615) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "site_assets", ["site_id"], name: "index_site_assets_on_site_id"
+  add_index "site_assets", ["site_id"], name: "index_site_assets_on_site_id", using: :btree
 
   create_table "sites", force: :cascade do |t|
     t.integer  "user_id"
@@ -70,7 +73,7 @@ ActiveRecord::Schema.define(version: 20150222194615) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "sites", ["user_id"], name: "index_sites_on_user_id"
+  add_index "sites", ["user_id"], name: "index_sites_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -89,8 +92,8 @@ ActiveRecord::Schema.define(version: 20150222194615) do
     t.string   "username"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

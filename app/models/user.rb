@@ -17,9 +17,9 @@ class User < ActiveRecord::Base
   end
 
   def to_liquid
-    attributes.select { |k, _|
-      %w[email name username].include?(k)
-    }.merge({
+    attributes
+      .slice('email', 'name', 'username')
+      .merge({
       'first_name' => first_name
     })
   end
