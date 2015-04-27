@@ -18,6 +18,7 @@ gem 'liquid'
 gem 'cocoon'
 gem 'dalli'
 gem 'memcachier'
+gem 'non-stupid-digest-assets'
 
 group :development, :test do
   gem 'byebug'
