@@ -31,6 +31,6 @@ module Portfa
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.cache_store = :dalli_store
+    config.cache_store = :dalli_store, 'memcached'
   end
 end
