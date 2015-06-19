@@ -22,6 +22,11 @@ class Dashboard::PagesController < Dashboard::DashboardController
     respond_with page, location: dashboard_pages_path
   end
 
+  def destroy
+    page.destroy if page.deletable?
+    redirect_to dashboard_pages_path
+  end
+
   protected
 
   def pages

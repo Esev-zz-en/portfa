@@ -22,6 +22,11 @@ class Dashboard::ProjectsController < Dashboard::DashboardController
     respond_with project, location: dashboard_projects_path
   end
 
+  def destroy
+    project.destroy
+    redirect_to dashboard_projects_path
+  end
+
   protected
 
   def projects

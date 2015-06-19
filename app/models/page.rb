@@ -8,6 +8,10 @@ class Page < ActiveRecord::Base
     attributes.deep_stringify_keys
   end
 
+  def deletable?
+    deletable
+  end
+
   private
 
   def generate_slug

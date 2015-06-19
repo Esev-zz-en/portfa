@@ -24,6 +24,11 @@ class Dashboard::SiteAssetsController < Dashboard::DashboardController
     respond_with site_asset, location: dashboard_site_assets_path
   end
 
+  def destroy
+    site_asset.destroy
+    redirect_to dashboard_site_assets_path
+  end
+
   protected
 
   def site_assets
