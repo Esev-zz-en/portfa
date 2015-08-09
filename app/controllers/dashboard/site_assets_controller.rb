@@ -1,5 +1,5 @@
 class Dashboard::SiteAssetsController < Dashboard::DashboardController
-  respond_to :html
+  respond_to :html, :js
   def index
     render locals: { site_assets: site_assets }
   end
@@ -12,7 +12,7 @@ class Dashboard::SiteAssetsController < Dashboard::DashboardController
 
   def create
     site_asset.save(site_asset_params)
-    respond_with site_asset, location: dashboard_site_assets_path
+    respond_with site_asset, location: resource_path
   end
 
   def edit
@@ -44,5 +44,9 @@ class Dashboard::SiteAssetsController < Dashboard::DashboardController
   def site_asset_params
     return {} unless params[:site_asset].present?
     params.require(:site_asset).permit(:file_name, :content)
+  end
+
+  def resource_path
+    site_asset.persisted? ? edit_dashboard_site_asset_path(site_asset) : dashboard_site_assets_path
   end
 end
