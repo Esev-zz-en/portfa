@@ -19,6 +19,7 @@ gem 'cocoon'
 gem 'dalli'
 gem 'memcachier'
 gem 'non-stupid-digest-assets'
+gem 'puma'
 
 group :development, :test do
   gem 'byebug'
