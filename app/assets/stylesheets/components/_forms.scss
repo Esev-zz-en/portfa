@@ -24,5 +24,16 @@ body.dashboard {
   .actions {
     padding-top: 20px;
   }
-}
 
+  .saved-status {
+    line-height: 36px;
+    padding-right: 10px;
+    text-transform: uppercase;
+    color: $gray-light;
+    font-size: 13px;
+
+    &.errored {
+      color: $brand-danger;
+    }
+  }
+}

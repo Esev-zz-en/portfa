@@ -1,0 +1,11 @@
+.saved-status.pull-right
+  span Saved
+
+- content_for :after_javascript do
+  javascript:
+    $(function(){
+      var displaySaving = function(){
+        $('.saved-status').html('Saving...');
+      }
+      $('form[data-remote=true]').on('ajax:beforeSend', displaySaving);
+    });

@@ -1,5 +1,5 @@
 class Dashboard::PagesController < Dashboard::DashboardController
-  respond_to :html
+  respond_to :html, :js
   def index
     render locals: { pages: pages }
   end
@@ -10,7 +10,7 @@ class Dashboard::PagesController < Dashboard::DashboardController
 
   def create
     page.save(page_params)
-    respond_with page, location: dashboard_pages_path
+    respond_with page, location: resource_path
   end
 
   def edit
@@ -42,5 +42,9 @@ class Dashboard::PagesController < Dashboard::DashboardController
   def page_params
     return {} unless params[:page].present?
     params.require(:page).permit(:title, :description, :content)
+  end
+
+  def resource_path
+    page.persisted? ? edit_dashboard_page_path(page) : dashboard_pages_path
   end
 end

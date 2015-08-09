@@ -1,0 +1,11 @@
+<% if resource.persisted? %>
+  // Add timeout to allow user to see
+  // the visual response
+  setTimeout(function(){
+    $('.saved-status').html('Saved');
+    $('.saved-status').removeClass('errored');
+  }, 1000);
+<% else %>
+  $('.saved-status').html('<%= j resource.errors.full_messages.first %>');
+  $('.saved-status').addClass('errored');
+<% end %>
