@@ -21,6 +21,6 @@ RSpec.describe CreateBasicSite do
     site = user.site
     asset_names = site.site_assets.map { |a| a.file_name }
 
-    expect(asset_names).to eq ['site.js', 'site.css']
+    expect(asset_names).to eq ['site.js', 'site.css', 'home.css', 'project.css']
   end
 end
