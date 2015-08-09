@@ -1,3 +1,20 @@
 body {
-  background: #eee;
+
+  .header-bar {
+    padding: 10px 0;
+    background: #eee;
+
+    h1 {
+      margin: 0;
+      font-size: 1.5em;
+      text-transform: uppercase;
+      color: #999;
+
+      a {
+        color: #999;
+        &:hover { color: #666; }
+      }
+    }
+  }
+
 }

@@ -10,12 +10,17 @@ class Project < ActiveRecord::Base
     attributes.deep_stringify_keys
       .merge({
       'images' => images.all,
-      'first_image' => first_image
+      'first_image' => first_image,
+      'last_image' => last_image
     })
   end
 
   def first_image
     images.first
+  end
+
+  def last_image
+    images.last
   end
 
   private

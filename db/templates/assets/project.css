@@ -1,0 +1,12 @@
+body.project {
+  background: #fff;
+  img { width: 100%; }
+
+  .page-header {
+    h1 {
+      text-transform: uppercase;
+    }
+
+    border: 0;
+  }
+}

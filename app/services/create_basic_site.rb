@@ -1,6 +1,6 @@
 class CreateBasicSite
   DEFAULT_PAGES = %w[home project]
-  DEFAULT_ASSETS = %w[site.js site.css]
+  DEFAULT_ASSETS = %w[site.js site.css home.css project.css]
 
   attr_reader :user
   def initialize(user)

@@ -1,22 +1,41 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="page-header">
-        <h1>{{ me.name }}</h1>
-        <p class="lead">{{ me.email }}, {{ me.username }}</p>
-      </div>
-
-      {% for project in projects %}
-        <div class="media">
-          <div class="media-body">
-            <h4 class="media-heading">{{ project.title }}</h4>
-            <p>{{ project.content }}</p>
-            <a href="{{ project.slug | project_path }}" class="btn btn-default">View</a>
-          </div>
+<div class="header-bar">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="clearfix">
+          <h1 class="pull-left">
+            <a href="{{ site_url }}">{{ me.name }}</a>
+          </h1>
         </div>
-        <hr />
-      {% endfor %}
+      </div>
     </div>
   </div>
 </div>
 
+<div class="hero-header">
+  <div class="container">
+    <div class="col-sm-12">
+      <div class="page-header">
+        <h1>Welcome to my website</h1>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce aliquet, turpis vel viverra placerat, lorem mauris posuere orci, vitae sodales sapien lectus vel lorem. In et pretium sem.</p>
+        <a href="mailto:{{ me.email }}" class="btn btn-default">Get in touch</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    {% for project in projects %}
+      <div class="col-sm-4">
+        <a href="{{ project.slug | project_path }}" class="thumbnail">
+          <img src="{{ project.first_image.url }}" title="{{ project.first_image.title }}" />
+          <span class="overlay">
+            <strong>{{ project.title }}</strong>
+            {{ project.content }}
+          </span>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
