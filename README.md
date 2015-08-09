@@ -10,12 +10,12 @@ Create a basic portfolio with just a few clicks.
 $ git clone
 $ bundle install
 $ rake db:setup
-$ rails s -p 8080
+$ foreman start -f Procfile.dev
 ```
 
 ## To Do
 
-- [ ] Use a production ready server (Puma)
+- [x] Use a production ready server (Puma)
 - [ ] Import site templates
 - [ ] Customize domain
 - [ ] Improve image assets management
