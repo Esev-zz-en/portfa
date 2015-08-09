@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :projects, :pages, :site_assets
   end
 
-  scope constraints: { username: /[a-z0-9]+/ } do
+  scope constraints: { username: /[a-z0-9\-]+/ } do
     get '/:username', to: 'site/pages#show', defaults: { page_slug: 'home' }, as: :site
     get '/:username/projects/:project_slug', to: 'site/pages#show', defaults: { page_slug: 'project' }, as: :site_project
     get '/:username/:page_slug', to: 'site/pages#show', as: :site_page

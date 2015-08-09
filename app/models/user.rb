@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   validates :name, :username, presence: true
   validates :username, uniqueness: true
+  validates :username, format: /\A[a-z0-9\-]+\z/
   after_create :create_basic_site
 
   def has_site?
